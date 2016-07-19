@@ -2,6 +2,7 @@ package subsystems.frc.team5254;
 
 import org.usfirst.frc.team5254.robot.Constants;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Talon;
 
@@ -10,6 +11,7 @@ public class Collector {
 	private DoubleSolenoid collectorPistons = new DoubleSolenoid(Constants.COLLECTOR_SOLENOID_EXTEND,
 			Constants.COLLECTOR_SOLENOID_RETRACT);
 	private Talon collectorTalon = new Talon(Constants.COLLECTOR_MOTOR);
+	private DigitalInput intakeButton = new DigitalInput(Constants.INTAKE_SENSOR);
 
 	public Collector() {
 
@@ -33,6 +35,10 @@ public class Collector {
 
 	public void collectorDown() {
 		collectorPistons.set(DoubleSolenoid.Value.kReverse);
+	}
+
+	public boolean getIntakeButton() {
+		return intakeButton.get();
 	}
 
 }

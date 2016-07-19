@@ -6,6 +6,7 @@ public class OperatorControls extends Pathfinder {
 
 	private T20GamePad opJoy = new T20GamePad(T20GamePad.JS_TYPE_XBOX, 1);
 	private double flySpeed = 0, armPos = 0;
+	private boolean shouldWatch = false;
 
 	public OperatorControls() {
 	}
@@ -23,10 +24,12 @@ public class OperatorControls extends Pathfinder {
 		if (opJoy.getButtonY()) {
 			collector.collectorOn();
 			flySpeed = flywheels.FLYSPEED_COLLECT;
+			shouldWatch = true;
 		}
-		if (opJoy.getButtonB() || opJoy.getButtonX()) {
+		if (opJoy.getButtonB() || opJoy.getButtonX() || (shouldWatch && collector.getIntakeButton())) {
 			collector.collectorOff();
 			flySpeed = flywheels.FLYSPEED_OFF;
+			shouldWatch = false;
 		}
 		if (opJoy.getButtonA()) {
 			collector.collectorBackdrive();

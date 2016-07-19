@@ -24,6 +24,7 @@ public class Constants {
 	public final static int COLLECTOR_SOLENOID_RETRACT = 0;
 	public final static int COLLECTOR_SOLENOID_EXTEND = 1;
 	public final static int COLLECTOR_MOTOR = 0;
+	public final static int INTAKE_SENSOR = 2;
 
 	// Shooter Arm -- CANTalon
 	public final static int SHOOTER_ARM = 6;
